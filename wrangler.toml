@@ -2,7 +2,9 @@ name = "personal-blog"
 compatibility_date = "2025-06-07"
 
 workers_dev = false
-route = { pattern = "exhibition.jp/*", zone_id = "57af664768b2e4eefee167688b07071a" }
+routes = [
+  { pattern = "exhibition.jp", custom_domain = true }
+]
 
 [assets]
 directory = "./public"
