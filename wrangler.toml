@@ -1,0 +1,17 @@
+name = "personal-blog"
+compatibility_date = "2025-06-07"
+
+workers_dev = false
+route = { pattern = "exhibition.jp/*", zone_id = "57af664768b2e4eefee167688b07071a" }
+
+[assets]
+directory = "./public"
+
+[build]
+# Download the latest Zola release, extract it, and build the site
+command = """
+curl -sSLo zola.tar.gz https://github.com/getzola/zola/releases/latest/download/zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz && \
+tar -xzf zola.tar.gz && \
+./zola build
+"""
+cwd = "."
