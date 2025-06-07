@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul class="card-list">
+  <!-- If you are using pagination, section.pages will be empty.
+       You need to use the paginator object -->  
+   {% for page in paginator.pages %}
+   {% if page.extra.no_index %}
+   {% continue %}
+   {% endif %}
+  <li>
+      <a class="card" href="{{ page.permalink | safe }}">
+          <p class="card-title">
+              {{ page.title }}
+          </p>
+          <p>{{ page.date }} {% if page.extra.update %}Last updated: {{ page.extra.update }}{% endif %}</p>
+          
+      </a>
+  </li>
+  {% endfor %}
+</ul>
+<nav class="pagination">
+    {% if paginator.previous %}
+        <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+    {% endif %}
+    {% if paginator.next %}
+        <a class="next" href="{{ paginator.next }}">Next ›</a>
+    {% endif %}
+</nav>
+{% endblock content %}
